@@ -1,4 +1,10 @@
 module.exports = {
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
   "extends": [
     "airbnb",
     "eslint:recommended",
@@ -6,43 +12,51 @@ module.exports = {
     "plugin:react/recommended",
     "react-app"
   ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
   "plugins": [
     "react",
     "jsx-a11y",
     "import"
   ],
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-        "jsx": true
-    }
-  },
   "rules": {
-    "semi": 2,
-    "no-undef": "warn",
-    "no-use-before-define": "warn",
     "comma-dangle": [
-      "error", {
+      "error",
+      {
         "arrays": "never",
-        "objects": "never",
-        "imports": "ignore",
         "exports": "ignore",
-        "functions": "never"
+        "functions": "never",
+        "imports": "ignore",
+        "objects": "never"
       }
     ],
-    "space-before-function-paren": ["error", {
-      "anonymous": "never",
-      "named": "never",
-      "asyncArrow": "ignore"
-    }],
     "func-names": 0,
-    "indent": ["error", 2, {
-      "FunctionDeclaration": {"parameters": 3, "body": 1}
-    }],
-    "prefer-rest-params": "warn",
     "import/prefer-default-export": "warn",
+    "indent": [
+      "error",
+      2,
+      {
+        "FunctionDeclaration": {
+          "body": 1,
+          "parameters": 3
+        }
+      }
+    ],
+    "key-spacing": [
+      2,
+      {
+        "align": "colon"
+      }
+    ],
+    "no-undef": "warn",
     "no-underscore-dangle": 0,
+    "no-use-before-define": "warn",
+    "prefer-rest-params": "warn",
     "react/jsx-filename-extension": [
       1,
       {
@@ -52,5 +66,34 @@ module.exports = {
         ]
       }
     ],
+    "semi": 2,
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "never",
+        "asyncArrow": "ignore",
+        "named": "never"
+      }
+    ],
+    "valid-jsdoc": [
+      "warn",
+      {
+        "prefer": {
+          "returns": "return",
+          "yield": "yields"
+        },
+        "preferType": {
+          "Boolean": "boolean",
+          "Number": "number",
+          "String": "string",
+          "array": "Array",
+          "function": "Function",
+          "object": "Object"
+        },
+        "requireParamDescription": false,
+        "requireReturn": false,
+        "requireReturnDescription": false
+      }
+    ]
   }
 };
